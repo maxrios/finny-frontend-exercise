@@ -2,18 +2,6 @@
 
 Agents: mark your task `[x]` when done. Add a one-line note if you hit anything unexpected.
 
-## Execution Order
-
-Tasks must be completed in this sequence. Do not start a task until all tasks in the previous wave are marked `[x]`.
-
-```
-Wave 1 (start here):   FOUNDATION
-Wave 2 (parallel):     1A
-Wave 3 (parallel):     1B, 1C, 2A
-Wave 4 (parallel):     3A
-Wave 5 (parallel):     3B
-```
-
 ---
 
 ## Wave 1
