@@ -20,7 +20,7 @@ Wave 5 (parallel):     3B
 - [x] **FOUNDATION** — Extract `Pokemon` type to `src/types/pokemon.ts`; add PC theme tokens to `globals.css`
 
 ## Wave 2
-- [ ] **1A** — `usePokemon` hook (`src/hooks/usePokemon.ts`) · _requires: FOUNDATION_
+- [x] **1A** — `usePokemon` hook (`src/hooks/usePokemon.ts`) · _requires: FOUNDATION_ — note: project has `perfectionist` ESLint rules requiring sorted imports/object keys
 
 ## Wave 3
 - [ ] **1B** — Scroll sentinel + IntersectionObserver (inside `PokemonGrid.tsx`) · _requires: 1A_
