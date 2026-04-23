@@ -2,25 +2,6 @@
 
 import { Input } from './ui/input'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type Pokemon = {
-  attack: number
-  defense: number
-  description: string
-  generation: number
-  height: number
-  hp: number
-  id: number
-  imageUrl: string
-  isLegendary?: boolean
-  name: string
-  specialAttack: number
-  specialDefense: number
-  speed: number
-  types: string[]
-  weight: number
-}
-
 const colors: Record<string, string> = {
   Bug: 'bg-lime-500 hover:bg-lime-600',
   Dark: 'bg-slate-800 hover:bg-slate-900',

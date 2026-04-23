@@ -17,7 +17,7 @@ Wave 5 (parallel):     3B
 ---
 
 ## Wave 1
-- [ ] **FOUNDATION** — Extract `Pokemon` type to `src/types/pokemon.ts`; add PC theme tokens to `globals.css`
+- [x] **FOUNDATION** — Extract `Pokemon` type to `src/types/pokemon.ts`; add PC theme tokens to `globals.css`
 
 ## Wave 2
 - [ ] **1A** — `usePokemon` hook (`src/hooks/usePokemon.ts`) · _requires: FOUNDATION_
