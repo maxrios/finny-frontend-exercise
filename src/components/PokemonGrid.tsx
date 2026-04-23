@@ -3,38 +3,12 @@
 import { X } from 'lucide-react'
 import { type ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 
-import type { Pokemon } from '@/types/pokemon'
-
 import { usePokemon } from '@/hooks/usePokemon'
 
+import { PokemonCard } from './PokemonCard'
 import { Input } from './ui/input'
 
 const SKELETON_COUNT = 20
-
-export const colors: Record<string, string> = {
-  Bug: 'bg-lime-500 hover:bg-lime-600',
-  Dark: 'bg-slate-800 hover:bg-slate-900',
-  Dragon: 'bg-indigo-700 hover:bg-indigo-800',
-  Electric: 'bg-yellow-500 hover:bg-yellow-600',
-  Fairy: 'bg-pink-300 hover:bg-pink-400',
-  Fighting: 'bg-red-700 hover:bg-red-800',
-  Fire: 'bg-red-500 hover:bg-red-600',
-  Flying: 'bg-indigo-400 hover:bg-indigo-500',
-  Ghost: 'bg-purple-700 hover:bg-purple-800',
-  Grass: 'bg-green-500 hover:bg-green-600',
-  Ground: 'bg-amber-600 hover:bg-amber-700',
-  Ice: 'bg-cyan-300 hover:bg-cyan-400',
-  Normal: 'bg-slate-400 hover:bg-slate-500',
-  Poison: 'bg-purple-500 hover:bg-purple-600',
-  Psychic: 'bg-pink-500 hover:bg-pink-600',
-  Rock: 'bg-amber-700 hover:bg-amber-800',
-  Steel: 'bg-slate-500 hover:bg-slate-600',
-  Water: 'bg-blue-500 hover:bg-blue-600'
-}
-
-export function getTypeColor(type: string) {
-  return colors[type] ?? 'bg-slate-400 hover:bg-slate-500'
-}
 
 export default function PokemonGrid() {
   const [search, setSearch] = useState('')
@@ -103,7 +77,7 @@ export default function PokemonGrid() {
                 key={i}
               />
             ))
-          : pokemon.map(p => <PokemonTile key={p.id} pokemon={p} />)}
+          : pokemon.map(p => <PokemonCard key={p.id} onClick={() => {}} pokemon={p} />)}
       </div>
 
       {isLoading && pokemon.length > 0 && (
@@ -117,23 +91,6 @@ export default function PokemonGrid() {
       )}
 
       <div ref={sentinelRef} />
-    </div>
-  )
-}
-
-function PokemonTile({ pokemon: p }: { pokemon: Pokemon }) {
-  return (
-    <div className="flex aspect-[3/4] flex-col items-center gap-2 rounded-lg border border-pc-border bg-pc-card p-3">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img alt={p.name} className="min-h-0 w-full flex-1 object-contain" src={p.imageUrl} />
-      <p className="text-center text-sm font-medium capitalize text-white">{p.name}</p>
-      <div className="flex flex-wrap justify-center gap-1">
-        {p.types.map(type => (
-          <span className={`rounded px-1.5 py-0.5 text-xs text-white ${getTypeColor(type)}`} key={type}>
-            {type}
-          </span>
-        ))}
-      </div>
     </div>
   )
 }
