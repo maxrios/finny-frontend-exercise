@@ -23,9 +23,9 @@ Wave 5 (parallel):     3B
 - [x] **1A** — `usePokemon` hook (`src/hooks/usePokemon.ts`) · _requires: FOUNDATION_ — note: project has `perfectionist` ESLint rules requiring sorted imports/object keys
 
 ## Wave 3
-- [ ] **1B** — Scroll sentinel + IntersectionObserver (inside `PokemonGrid.tsx`) · _requires: 1A_
-- [ ] **1C** — PC grid shell + skeleton loaders (`PokemonGrid.tsx` layout) · _requires: 1A_
-- [ ] **2A** — Debounced search input wired to `usePokemon` · _requires: 1A_
+- [x] **1B** — Scroll sentinel + IntersectionObserver (inside `PokemonGrid.tsx`) · _requires: 1A_
+- [x] **1C** — PC grid shell + skeleton loaders (`PokemonGrid.tsx` layout) · _requires: 1A_
+- [x] **2A** — Debounced search input wired to `usePokemon` · _requires: 1A_
 
 ## Wave 4
 - [ ] **3A** — `PokemonCard` default view (`src/components/PokemonCard.tsx`) · _requires: 1C_
@@ -35,3 +35,4 @@ Wave 5 (parallel):     3B
 
 ## Notes
 <!-- Agents: drop any cross-cutting observations here -->
+- 1B/1C/2A: All implemented in one `PokemonGrid.tsx` rewrite. `colors`/`getTypeColor` exported (not moved) for 3A to migrate to `src/lib/pokemon.ts`. React 19 `useRef` requires explicit initial value — use `useRef<T | undefined>(undefined)` not `useRef<T>()`. Perfectionist sorts internal type imports into a separate group above internal value imports.
