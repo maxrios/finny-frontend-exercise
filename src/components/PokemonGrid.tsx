@@ -3,9 +3,12 @@
 import { X } from 'lucide-react'
 import { type ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 
+import type { Pokemon } from '@/types/pokemon'
+
 import { usePokemon } from '@/hooks/usePokemon'
 
 import { PokemonCard } from './PokemonCard'
+import { PokemonDialog } from './PokemonDialog'
 import { Input } from './ui/input'
 
 const SKELETON_COUNT = 20
@@ -13,6 +16,7 @@ const SKELETON_COUNT = 20
 export default function PokemonGrid() {
   const [search, setSearch] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
+  const [selectedPokemon, setSelectedPokemon] = useState<null | Pokemon>(null)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const sentinelRef = useRef<HTMLDivElement>(null)
 
@@ -77,7 +81,9 @@ export default function PokemonGrid() {
                 key={i}
               />
             ))
-          : pokemon.map(p => <PokemonCard key={p.id} onClick={() => {}} pokemon={p} />)}
+          : pokemon.map(p => (
+              <PokemonCard key={p.id} onClick={() => setSelectedPokemon(p)} pokemon={p} />
+            ))}
       </div>
 
       {isLoading && pokemon.length > 0 && (
@@ -91,6 +97,12 @@ export default function PokemonGrid() {
       )}
 
       <div ref={sentinelRef} />
+
+      <PokemonDialog
+        onClose={() => setSelectedPokemon(null)}
+        open={!!selectedPokemon}
+        pokemon={selectedPokemon}
+      />
     </div>
   )
 }
